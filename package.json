@@ -1,0 +1,21 @@
+{
+  "name": "@venkadesh004/nodegem",
+  "version": "0.0.1",
+  "description": "A imporved module for Google Gemini AI with Google Drive and Mail Integrations",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsup"
+  },
+  "keywords": [],
+  "author": "venkadesh004",
+  "license": "MIT",
+  "repository": "https://github.com/venkadesh004/nodegem",
+  "dependencies": {
+    "@google/generative-ai": "^0.3.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.2"
+  }
+}
