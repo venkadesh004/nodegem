@@ -159,11 +159,10 @@
 <td></td>
 </tr>
 <tr>
-<td>generateContent</td>
+</table>
+generateContent
 
 For this parameter are prompt and streams.Datatype of prompt is String and for stream its Boolean.Here we checking conditions for model name if its not a gemini-pro means we have to return promise that in string. If its stream means we call that generateContentStream and pass prompt as parameter into that function.That we save in const and return as response text.
-
-</tr>
 fileToGenerativePart:
 
 For this paramater are path and mimeType.Datatype of path is String and for mimeType its string.Here we have inlineData inside that readFileSync function is called and path parameter is passed into it and convert that into string using base64.
@@ -246,5 +245,3 @@ For this we have API_KEY, bloggerID, doPrompt, prompt,Promise with as a return p
 switchModel:
 
 For this we have modelName as parameter which is in string datatype and the return type is with void. and pass the api key to the generative ai and with that getGenerativeModel with a modelName as parameter.
-
-</table>
