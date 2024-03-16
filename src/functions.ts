@@ -49,6 +49,11 @@ export class NodeGem {
         return response.text();
     }
 
+    switchModel(modelName: string): void {
+        this.modelName = modelName;
+        this.currentModel = new GoogleGenerativeAI(this.API_KEY).getGenerativeModel({model: this.modelName});
+    }
+
     fileToGenerativePart(path: string, mimeType: string) {
         return {
             inlineData: {
