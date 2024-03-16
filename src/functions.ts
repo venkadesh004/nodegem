@@ -4,11 +4,14 @@ import path from "path";
 import { google } from "googleapis";
 
 import { authenticate } from "@google-cloud/local-auth";
-import { TranslationServiceClient } from "@google-cloud/translate";
+import { v2 } from "@google-cloud/translate";
 
 import { ModelConfig } from "./types";
+import { Translate } from "@google-cloud/translate/build/src/v2";
 
 const nodemailer = require('nodemailer');
+
+import axios, { AxiosResponse } from "axios";
 
 export class NodeGem {
     private API_KEY: string;
@@ -23,7 +26,8 @@ export class NodeGem {
     private jwtClient: any;
     private authConnect: any;
     private gmail: any;
-    private translationClient: TranslationServiceClient = new TranslationServiceClient();
+    private translate: Translate = new v2.Translate();
+    private bloggerAPIKey!: string;
 
     constructor(API_KEY: string, modelName: string) {
         this.API_KEY = API_KEY;
@@ -143,7 +147,7 @@ export class NodeGem {
         }
     }
 
-    async listFiles(pageSize: number): Promise<void> {
+    async listFiles(pageSize: number): Promise<string[][] | null | undefined> {
         const drive = google.drive({ version: "v3", auth: this.jwtClient });
         const res = await drive.files.list({
             pageSize: pageSize,
@@ -152,11 +156,14 @@ export class NodeGem {
         const files = res.data.files;
         if (files?.length === 0) {
             console.log("No files Found!");
-            return;
+            return process.exit();
         }
+        var list: string[][] = [];
         files?.map((file) => {
-            console.log(`${file.name} (${file.id})`);
+            list.push([file.name!, file.id!]);
+            // console.log(`${file.name} (${file.id})`);
         });
+        return list;
     }
 
     async uploadFile(fileName: string): Promise<string | null | undefined> {
@@ -392,20 +399,46 @@ export class NodeGem {
         }
     }
 
-    async translateText(projectID: string, text: string, mimeType: string, sourceLang: string, targetLang: string) {
-        const request = {
-            parent: projectID,
-            contents: [text],
-            mimeType: mimeType,
-            sourceLanguageCode: sourceLang,
-            targetLanguageCode: targetLang
-        };
+    async translateText(text: any, targetLang: string) {
+        let [translations] = await this.translate.translate(text, targetLang);
+        return translations;
+    }
 
-        const [response] = await this.translationClient.translateText(request);
+    async getBlogData(API_KEY: string, bloggerID: string): Promise<AxiosResponse | any> {
+        this.bloggerAPIKey = API_KEY;
+        // console.log(`https://www.googleapis.com/blogger/v3/blogs/${bloggerID}?key=${API_KEY}`);
+        const result = await axios.get(`https://www.googleapis.com/blogger/v3/blogs/${bloggerID}?key=${API_KEY}`);
+        return result.data;
+    }
 
-        for (const translation of response.translations!) {
-            console.log(translation.translatedText);
-        }
+    async generateBlogContent(prompt: string | string[]) {
+        const result = await this.currentModel.generateContent(prompt);
+        return result.response.text();
+    }
+
+    async postBlogger(blogID: string, title: string, prompt: string, API_KEY: string): Promise<any> {
+        this.bloggerAPIKey = API_KEY;
+        var authObj = new google.auth.OAuth2();
+        authObj.setCredentials({
+            access_token: API_KEY
+        });
+        const content = await this.generateBlogContent([prompt, title]);
+        const blogger = google.blogger('v3');
+        blogger.posts.insert({
+            auth: API_KEY,
+            blogId: blogID,
+            requestBody: {
+                title: title,
+                content: content
+            }
+        }, (err: any, response: any) => {
+            if (err) {
+                console.log(err);
+                return err;
+            }
+
+            return response;
+        });
     }
 }
 

@@ -1,6 +1,6 @@
 {
   "name": "@venkadesh004/nodegem",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A imporved module for Google Gemini AI with Google Drive and Mail Integrations",
   "main": "index.js",
   "scripts": {
@@ -15,6 +15,7 @@
     "@google-cloud/translate": "^8.1.0",
     "@google/generative-ai": "^0.3.0",
     "@types/node": "^20.11.28",
+    "axios": "^1.6.8",
     "fs": "^0.0.1-security",
     "googleapis": "^105.0.0",
     "nodemailer": "^6.9.5"
