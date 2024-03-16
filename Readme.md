@@ -80,85 +80,84 @@
 <td></td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
+<td>switchModel</td>
+<td>modelName: string</td>
+<td>void</td>
 <td></td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
+<td>fileToGenerativePart</td>
+<td>path: string, mimeType: string</td>
+<td>JSON</td>
 <td></td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
+<td>useTextAndImage</td>
+<td>imageParts: string[][], stream: boolean, prompt: string</td>
+<td>Promise<string></td>
 <td></td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td></td>
+<td>changeConfig</td>
+<td>{ maxOutputTokens, temperature, topP, topK, stopSequence }: ModelConfig</td>
+<td>void</td>
 <td></td>
 </tr>
 <tr>
+<td>changeSafetySettings</td>
+<td>input: Map<string, string></td>
+<td>void</td>
 <td></td>
+</tr>
+<tr>
+<td>loadSavedCredentialsIfExist</td>
+<td>token_path: string</td>
+<td>Promise<JSON CLient | null></td>
 <td></td>
+</tr>
+<tr>
+<td>connectServiceAccount</td>
+<td>clientKey: string, keyFile: string, privateKey: string, scopes: string[]</td>
+<td>Promise<void></td>
 <td></td>
+</tr>
+<tr>
+<td>saveCredentials</td>
+<td>client: any, credentials_path: string, token_path: string</td>
+<td>Promise<void></td>
 <td></td>
 </tr>
 
 <tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
+<td>connectAuthClient</td>
+<td>token_path: string, credentials_path: string, scopes: string[]</td>
+<td>Promise<void></td>
 <td></td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
+<td>listFiles</td>
+<td>pageSize: number</td>
+<td>Promise<string[][] | null | undefined></td>
 <td></td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td></td>
+<td>uploadFile</td>
+<td>fileName: string</td>
+<td>Promise<string | null | undefined></td>
 <td></td>
 </tr>
 <tr>
+<td>updateFile</td>
+<td>fileName: string, fileId: string</td>
+<td>Promise<string | null | undefined></td>
+<td></td>
+</tr>
+<tr>
+<td>downloadFile</td>
+<td>fileName: string, fileId: string, listenerFunction: any</td>
+<td>Promise<any></td>
+<td></td>
+</tr>
 </table>
 generateContent
 
