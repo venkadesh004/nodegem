@@ -1,4 +1,4 @@
-<h1>Node module for google ecosystem</h1>
+<h1>Node module for google ecosystem </h1>
 <p>We build a ecosystem for google drive service to access that drive using gemini with these we create,update,download,read that drive which can access images and vedios,which can only be send as prompt.There are also some built in parameter,Every prompt we send to the model includes parameter values that control how the model generates a response.The model can generate different results for different parameter values.The most comman model paremeters are:</p>
 <ol>Max output token</ol>
 <ol>Temperature</ol>
@@ -46,5 +46,16 @@
 <p>Block when low,medium or high probability of unsafe content.</p>
 <b>HARM_BLOCK_THRESHOLD_UNSPECIFIED</b>
 <p>Threshold is unspecified,block using default threshold</p>
+<h3>Probabilities</h3>
+<ol><b>Negligible</b></ol>
+<p>Content has a negligible probability of being unsafe</p>
+<ol><b>low</b></ol>
+<p>Content has a low probability of being unsafe</p>
+<ol><b>Medium</b></ol>
+<p>Content has a medium probability of being unsafe</p>
+<ol><b>High</b></ol>
+<p>Content has a high probability of being unsafe</p>
 
+<h3>For experiencing this we create a react web appliation for a e-commerce</h3>
 
+<p>We create a basic web appliaction for e-commerce conatains a login and file upload page with fully validated.From this website we are trying to get the use our developing module for example nowadays cloth making shops for upto the trend becomes most popular.So we taken that as our example business model because that particular brand can't do best or exceptionally well in both clothing and branding theirs to incraese the sales.For being better in branding and searching off we provides keywords that will be useful for both enduser and that particular brand company from that image prompt from that we access from google drive not a direct prompt we access it and give discription and related features about it.So that brand cant be worried about the marketting and branding meanwhile it also helps for the customers to get the expected things in right time. For provide these kinds of services we  initialise API keys and access the google drive using that and gemini ai in that ,fetch the both to get results that we expected.Here we transfer all the images and info by streams and get as or stored in buffer for arranging the different colections of data in a better way.For google authentication we use two methods oath 2.0 and service accounts,for that service account we create a private key to access JWT (jeson web tokens) that is used for client verification.These are for service accounts.For outh  2.0 we have to create a new project and we have to redirect the URL's and now we have to download the credentials.Using connectAuthClient ,that provides two forms of security for session management, including the Internet Identity delegation. for that connectAuthClient function we have three parameters which are Tokens_path,Credentials_path,scopes. Here Token_path refers to path loaction of token.js and Credentials_path are refers to path there credentials are been there.Lastly we have scope that refers to the OAuth 2.0 scopes that you might need to request to access Google APIs, depending on the level of access you need. Sensitive scopes require review by Google and have a sensitive indicator on the Google Cloud Console's OAuth consent screen configuration page. Many scopes overlap, so it's best to use a scope that isn't sensitive.If your public application uses scopes that permit access to certain user data, it must complete a verification process. If you see unverified app on the screen when testing your application, you must submit a verification request to remove it.</p>
