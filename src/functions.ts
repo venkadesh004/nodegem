@@ -406,7 +406,6 @@ export class NodeGem {
 
     async getBlogData(API_KEY: string, bloggerID: string): Promise<AxiosResponse | any> {
         this.bloggerAPIKey = API_KEY;
-        // console.log(`https://www.googleapis.com/blogger/v3/blogs/${bloggerID}?key=${API_KEY}`);
         const result = await axios.get(`https://www.googleapis.com/blogger/v3/blogs/${bloggerID}?key=${API_KEY}`);
         return result.data;
     }
@@ -416,29 +415,16 @@ export class NodeGem {
         return result.response.text();
     }
 
-    async postBlogger(blogID: string, title: string, prompt: string, API_KEY: string): Promise<any> {
+    async getBlogContent(API_KEY: string, bloggerID: string, doPrompt: boolean, prompt: string): Promise<AxiosResponse | any> {
         this.bloggerAPIKey = API_KEY;
-        var authObj = new google.auth.OAuth2();
-        authObj.setCredentials({
-            access_token: API_KEY
-        });
-        const content = await this.generateBlogContent([prompt, title]);
-        const blogger = google.blogger('v3');
-        blogger.posts.insert({
-            auth: API_KEY,
-            blogId: blogID,
-            requestBody: {
-                title: title,
-                content: content
-            }
-        }, (err: any, response: any) => {
-            if (err) {
-                console.log(err);
-                return err;
-            }
-
-            return response;
-        });
+        const result = await axios.get(`https://www.googleapis.com/blogger/v3/blogs/${bloggerID}/posts?key=${API_KEY}`);
+        if (!doPrompt) {
+            return result.data;
+        }
+        var list = result.data.items.map((element:any) => element.content);
+        // console.log(list);
+        const output = await this.currentModel.generateContent([prompt, ...list]);
+        return output.response.text();
     }
 }
 
