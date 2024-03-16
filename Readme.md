@@ -62,14 +62,111 @@
 
 <table> 
 <tr>
-<td>generateContent:</td>
+<th>Method</th>
+<th>Parameter</th>
+<th>Return Type</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>constructor</td>
+<td>API_KEY: string, modelName: string</td>
+<td>void</td>
+<td>The constructor function which Initializes the Model</td>
+</tr>
+<tr>
+<td>generateContent</td>
+<td>prompt: string, stream: boolean</td>
+<td>Promise<string></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
 
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>generateContent</td>
 
-For this parameter are prompt and streams.Datatype of prompt is String and  for stream its Boolean.Here we checking conditions for model name if its not a gemini-pro means we have to return promise that in string. If its stream means we call that generateContentStream and pass prompt as parameter into that function.That we save in const and return as response text.
+For this parameter are prompt and streams.Datatype of prompt is String and for stream its Boolean.Here we checking conditions for model name if its not a gemini-pro means we have to return promise that in string. If its stream means we call that generateContentStream and pass prompt as parameter into that function.That we save in const and return as response text.
+
 </tr>
 fileToGenerativePart:
 
-For this paramater are path and mimeType.Datatype of path is String and for mimeType its string.Here we have inlineData inside that readFileSync function is called and path  parameter is passed into it and convert that into string using base64.
+For this paramater are path and mimeType.Datatype of path is String and for mimeType its string.Here we have inlineData inside that readFileSync function is called and path parameter is passed into it and convert that into string using base64.
 
 useTextAndImage:
 
@@ -88,11 +185,9 @@ connectServiceAccount:
 
 For this parameters are clientKey,keyFile,privateKey, scopes,Promise.For these we have string as datatype except promise.promise is void.and after this we use jwtClient and use authirize funtion for authoraisation issues.
 
-
 saveCredentials:
 
 For this we pass paramaters client,credentials_path,token_path and we have return type promise as void.Datatypes for client might maybe anything,credentials_path must be string and token path as string. For content we awaits promise and readFile in that we pass credentials_path as parameter.For keys we get JSON.parse(content) and for key we have install those keys and payload is JSON that is stringify inside that we have types,client_id,client_secret,refresh_token.For return type we use promises and we write the file here using token_path, payload parameters etc.
-
 
 connectAuthClient:
 
@@ -113,7 +208,7 @@ For this we having fileName,fileId as parameter and return type as promise.Both 
 
 downloadFile:
 
-For this we have fileName,fileId,listenerFunction as parameter and promise as return function.For that we have to connect with driove using version and auth with that jwtClient.And checks the conditions if both fileName and fileId is done we have to fix the fileID and responseType with streams and there itself it handles the error.Using listenerFunction and .pipe(dest) we implemet  this download file.
+For this we have fileName,fileId,listenerFunction as parameter and promise as return function.For that we have to connect with driove using version and auth with that jwtClient.And checks the conditions if both fileName and fileId is done we have to fix the fileID and responseType with streams and there itself it handles the error.Using listenerFunction and .pipe(dest) we implemet this download file.
 
 driveAndPrompt:
 
@@ -136,7 +231,6 @@ sendMail:
 For this we have from,to,subject,text,html,name,prompt.All the parameters are string only.Condition have to check with oAuth2Client with creating a object with clientId,clientSecret,clientSecret and also with checkCredentials we build refresh_token with oAuthClient.It users nodemailer and servies align with them.
 validate the mail using mailOptions and at last we translate the issues that are been faced.
 
-
 translateText:
 
 For this we have a text with any datatype and a targetLang using translation function it passes text and techlang.Here we using translation functions using this.
@@ -144,7 +238,6 @@ For this we have a text with any datatype and a targetLang using translation fun
 getBlogData:
 
 For this we have a API_KEY,bloggerID as parameters and with Promise as a return type.Using axios here for google bloggers and returns the results response text.
-
 
 getBlogContent:
 
