@@ -159,7 +159,7 @@ export class NodeGem {
             return process.exit();
         }
         var list: string[][] = [];
-        files?.map((file) => {
+        files?.map((file: { name: string; id: string; }) => {
             list.push([file.name!, file.id!]);
             // console.log(`${file.name} (${file.id})`);
         });
@@ -212,7 +212,7 @@ export class NodeGem {
             drive.files.get(
                 { fileId: fileId, alt: "media" },
                 { responseType: "stream" },
-                (err, response) => {
+                (err: any, response: { data: { on: (arg0: string, arg1: any) => { (): any; new(): any; on: { (arg0: string, arg1: (err: any) => never): { (): any; new(): any; pipe: { (arg0: fs.WriteStream): void; new(): any; }; }; new(): any; }; }; }; }) => {
                     if (err) {
                         console.log(err);
                         return;
@@ -244,13 +244,13 @@ export class NodeGem {
                     drive.files.get(
                         { fileId: fileId, alt: "media" },
                         { responseType: "stream" },
-                        (err, response) => {
+                        (err: any, response: { data: { on: (arg0: string, arg1: (chunk: any) => number) => { (): any; new(): any; on: { (arg0: string, arg1: () => void): { (): any; new(): any; on: { (arg0: string, arg1: () => Promise<void>): void; new(): any; }; }; new(): any; }; }; }; }) => {
                             if (err) {
                                 console.log(err);
                                 return process.exit();
                             }
                             response?.data
-                                .on('data', (chunk) => chunks.push(Buffer.from(chunk)))
+                                .on('data', (chunk: WithImplicitCoercion<ArrayBuffer | SharedArrayBuffer>) => chunks.push(Buffer.from(chunk)))
                                 .on('error', () => {
                                     console.log(err);
                                     reject(process.exit());
@@ -284,12 +284,12 @@ export class NodeGem {
                 drive.files.get(
                     { fileId: fileId, alt: "media" },
                     { responseType: 'stream' },
-                    (err, response) => {
+                    (err: any, response: { data: { on: (arg0: string, arg1: (chunk: any) => number) => { (): any; new(): any; on: { (arg0: string, arg1: () => void): { (): any; new(): any; on: { (arg0: string, arg1: () => void): void; new(): any; }; }; new(): any; }; }; }; }) => {
                         if (err) {
                             reject(err);
                         }
                         response?.data
-                            .on('data', (chunk) => chunks.push(Buffer.from(chunk)))
+                            .on('data', (chunk: WithImplicitCoercion<ArrayBuffer | SharedArrayBuffer>) => chunks.push(Buffer.from(chunk)))
                             .on('error', () => {
                                 resolve("Error");
                             })
