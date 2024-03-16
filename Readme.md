@@ -1,4 +1,4 @@
-<h1>Node module for google ecosystem </h1>
+<h1>Node module for google ecosystem with Gemini AI</h1>
 <p>We build a ecosystem for google drive service to access that drive using gemini with these we create,update,download,read that drive which can access images and vedios,which can only be send as prompt.There are also some built in parameter,Every prompt we send to the model includes parameter values that control how the model generates a response.The model can generate different results for different parameter values.The most comman model paremeters are:</p>
 <ol>Max output token</ol>
 <ol>Temperature</ol>
