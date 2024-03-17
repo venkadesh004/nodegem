@@ -1,6 +1,6 @@
 {
   "name": "@venkadesh004/nodegem",
-  "version": "0.0.9",
+  "version": "1.0.0",
   "description": "A imporved module for Google Gemini AI with Google Drive and Mail Integrations",
   "main": "index.js",
   "scripts": {

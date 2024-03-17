@@ -237,3 +237,11 @@
 <td>Get the Blog Content and add custom prompt to it</td>
 </tr>
 </table>
+
+<h1>Sample Projects:</h1>
+<h2>A simple ECommerce website that is developed using this module which process the images uploaded, generates description and keywords for the cloths</h2>
+<p>Urls:</p>
+<ul>
+<li>Server Side: https://github.com/Dineshkumaar07/driveUpload</li>
+<li>Client Side: https://github.com/Dineshkumaar07/driveUploadClient</li>
+</ul>
