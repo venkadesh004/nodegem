@@ -62,185 +62,178 @@
 
 <table> 
 <tr>
+<th>S.No</th>
 <th>Method</th>
 <th>Parameter</th>
 <th>Return Type</th>
 <th>Description</th>
 </tr>
 <tr>
+<td>1</td>
 <td>constructor</td>
 <td>API_KEY: string, modelName: string</td>
 <td>void</td>
 <td>The constructor function which Initializes the Model</td>
 </tr>
 <tr>
+<td>2</td>
 <td>generateContent</td>
 <td>prompt: string, stream: boolean</td>
 <td>Promise<string></td>
 <td></td>
 </tr>
 <tr>
+<td>3</td>
 <td>switchModel</td>
 <td>modelName: string</td>
 <td>void</td>
 <td></td>
 </tr>
 <tr>
+<td>4</td>
 <td>fileToGenerativePart</td>
 <td>path: string, mimeType: string</td>
 <td>JSON</td>
 <td></td>
 </tr>
 <tr>
+<td>5</td>
 <td>useTextAndImage</td>
 <td>imageParts: string[][], stream: boolean, prompt: string</td>
 <td>Promise<string></td>
 <td></td>
 </tr>
 <tr>
+<td>6</td>
 <td>changeConfig</td>
 <td>{ maxOutputTokens, temperature, topP, topK, stopSequence }: ModelConfig</td>
 <td>void</td>
 <td></td>
 </tr>
 <tr>
+<td>7</td>
 <td>changeSafetySettings</td>
 <td>input: Map<string, string></td>
 <td>void</td>
 <td></td>
 </tr>
 <tr>
+<td>8</td>
 <td>loadSavedCredentialsIfExist</td>
 <td>token_path: string</td>
 <td>Promise<JSON CLient | null></td>
 <td></td>
 </tr>
 <tr>
+<td>9</td>
 <td>connectServiceAccount</td>
 <td>clientKey: string, keyFile: string, privateKey: string, scopes: string[]</td>
 <td>Promise<void></td>
 <td></td>
 </tr>
 <tr>
+<td>10</td>
 <td>saveCredentials</td>
 <td>client: any, credentials_path: string, token_path: string</td>
 <td>Promise<void></td>
 <td></td>
 </tr>
-
 <tr>
+<td>11</td>
 <td>connectAuthClient</td>
 <td>token_path: string, credentials_path: string, scopes: string[]</td>
 <td>Promise<void></td>
 <td></td>
 </tr>
 <tr>
+<td>12</td>
 <td>listFiles</td>
 <td>pageSize: number</td>
 <td>Promise<string[][] | null | undefined></td>
 <td></td>
 </tr>
 <tr>
+<td>13</td>
 <td>uploadFile</td>
 <td>fileName: string</td>
 <td>Promise<string | null | undefined></td>
 <td></td>
 </tr>
 <tr>
+<td>14</td>
 <td>updateFile</td>
 <td>fileName: string, fileId: string</td>
 <td>Promise<string | null | undefined></td>
 <td></td>
 </tr>
 <tr>
+<td>15</td>
 <td>downloadFile</td>
 <td>fileName: string, fileId: string, listenerFunction: any</td>
 <td>Promise<any></td>
 <td></td>
 </tr>
+<tr>
+<td>16</td>
+<td>driveAndPrompt</td>
+<td>prompt: string, fileName: string, fileId: string</td>
+<td>Promise<string | null></td>
+<td></td>
+</tr>
+<tr>
+<td>17</td>
+<td>returnImageBuffer</td>
+<td>fileName: string, fileId: string</td>
+<td>Promise<Buffer | string></td>
+<td></td>
+</tr>
+<tr>
+<td>18</td>
+<td>returnSnippet</td>
+<td>userId: string, maxResult: number</td>
+<td>Promise<string[]></td>
+<td></td>
+</tr>
+<tr>
+<td>19</td>
+<td>promptSnippet</td>
+<td>userId: string, snippetID: string, prompt: string</td>
+<td>Promise<string></td>
+<td></td>
+</tr>
+<tr>
+<td>20</td>
+<td>sendMail</td>
+<td>from: string, to: string, subject: string, text: string, html: string, name: string, prompt: string</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>21</td>
+<td>translateText</td>
+<td>text: any, targetLang: string</td>
+<td>Promise<string | null></td>
+<td></td>
+</tr>
+<tr>
+<td>22</td>
+<td>getBlogData</td>
+<td>API_KEY: string, bloggerID: string</td>
+<td>Promise<AxiosResponse | any></td>
+<td></td>
+</tr>
+<tr>
+<td>23</td>
+<td>generateBlogContent</td>
+<td>prompt: string | string[]</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>24</td>
+<td>getBlogContent</td>
+<td>API_KEY: string, bloggerID: string, doPrompt: boolean, prompt: string</td>
+<td>Promise<AxiosResponse | any></td>
+<td></td>
+</tr>
 </table>
-generateContent
-
-For this parameter are prompt and streams.Datatype of prompt is String and for stream its Boolean.Here we checking conditions for model name if its not a gemini-pro means we have to return promise that in string. If its stream means we call that generateContentStream and pass prompt as parameter into that function.That we save in const and return as response text.
-fileToGenerativePart:
-
-For this paramater are path and mimeType.Datatype of path is String and for mimeType its string.Here we have inlineData inside that readFileSync function is called and path parameter is passed into it and convert that into string using base64.
-
-useTextAndImage:
-
-For this parameter are imageParts,streams and prompts.Datatype of imageParts is String,for streams it is boolean and for prompt it's String.Return type we keep promise as string.We use conditions if modelName is gemini-pro we have to return that statement.In results we call the generateContent function and call that inside that function we pass the parameters as prompt and newImageParts,awaits for results response and returns as text output.
-
-changeConfig:
-
-For this parameter are maxOutputTokens,temperature,topP,topK,stopSequence.Datatype of maxOutputTokens,temperature,topP,topK is number and for stopSequence its String.
-We create a object for that and use currentModel and here we call GoogleGenerativeAI and here we pass the parameter API_KEY and in getGenerativeModel function we pass the modelName,safetySettings etc.
-
-loadSavedCredentialsIfExist:
-
-For this parameters are token_path,datatype is String.Here we use try catch model and we return the promise readFile in that we pass the token_path.For credentials we use json parse and we pass content in that, its datatype is String.For return values we use google.auth.fromJSON and pass the parameter credentials,and we handle the error.
-
-connectServiceAccount:
-
-For this parameters are clientKey,keyFile,privateKey, scopes,Promise.For these we have string as datatype except promise.promise is void.and after this we use jwtClient and use authirize funtion for authoraisation issues.
-
-saveCredentials:
-
-For this we pass paramaters client,credentials_path,token_path and we have return type promise as void.Datatypes for client might maybe anything,credentials_path must be string and token path as string. For content we awaits promise and readFile in that we pass credentials_path as parameter.For keys we get JSON.parse(content) and for key we have install those keys and payload is JSON that is stringify inside that we have types,client_id,client_secret,refresh_token.For return type we use promises and we write the file here using token_path, payload parameters etc.
-
-connectAuthClient:
-
-For this we pass token_path,credentials_path,scopes and a return type promise.The token_path and credentials_path are considered as string,scopes is string array and promise is void as usual.We create authConnect using loadSavedCredentialsIfExist function and pass token_path as parameter in to this.
-In this we use conditions to check the gmail credentials with the version and parameter that was passed into the function gmail function and in saveCredentials we pass the object of authConnect,credentials_path,token_path.
-
-listFiles:
-
-For this we pass pageSize as parameter its a number and return type as promise it must be a string matrix,null or undefined.Here, we access google drive for getting versions and auth with jwtClient.And here we have results with files.list functions that contains pageSize and fields.conditions have been checken here that file length must not be zero if it satisfied means push the list with file name and file id.
-
-uploadFile:
-
-For this we having fileName as parameters and promise as string.we init drive using drive() function having parameters of version,auth with jwtclient.And after that we check the conditions and calls createReadStream function and pass fileName as parameter this is for media.As same as for field witha basename with fileName parameter as passed.
-
-updateFile:
-
-For this we having fileName,fileId as parameter and return type as promise.Both fileName and fileId has string as parameter.and we have to check the condition heer that it have both fileName and fileId with media and fileId using createReadStream as fileName is passed as parameter.
-
-downloadFile:
-
-For this we have fileName,fileId,listenerFunction as parameter and promise as return function.For that we have to connect with driove using version and auth with that jwtClient.And checks the conditions if both fileName and fileId is done we have to fix the fileID and responseType with streams and there itself it handles the error.Using listenerFunction and .pipe(dest) we implemet this download file.
-
-driveAndPrompt:
-
-For this we have prompt,fileName,fileId as parameters and Promise for returning the files.Use google-pro and get and use gemini pro version.And then connect with drive using drive() fn. After that we are expected to use conditions checks with fileName and fileId that we have to convert the chunks into UintBinary by getting fileId,responseType with streams and it can aslo able to access the error.
-
-returnImageBuffer:
-
-For this we have fileName,fileId as parameters and Promise for returning the files.Check the conditions after that chunks to Uint8Array with fileId,responseType and also handle some errors.Response the data with chunks and resolve that error.
-
-returnSnippet:
-
-For this we have userId,maxResult,Promise as return function.We have to check the connection with gamil and undefinend and we use messages.list and that contains userId,maxResult and datamanagers.When mails note equal to the undefined only it shows lineSnippets and return that as output for this function.
-
-promptSnippet:
-
-For this i'm edit() and if this.modelName === gemini-pro-vision and return as promise for getting output.Handling the error corrections.
-
-sendMail:
-
-For this we have from,to,subject,text,html,name,prompt.All the parameters are string only.Condition have to check with oAuth2Client with creating a object with clientId,clientSecret,clientSecret and also with checkCredentials we build refresh_token with oAuthClient.It users nodemailer and servies align with them.
-validate the mail using mailOptions and at last we translate the issues that are been faced.
-
-translateText:
-
-For this we have a text with any datatype and a targetLang using translation function it passes text and techlang.Here we using translation functions using this.
-
-getBlogData:
-
-For this we have a API_KEY,bloggerID as parameters and with Promise as a return type.Using axios here for google bloggers and returns the results response text.
-
-getBlogContent:
-
-For this we have API_KEY, bloggerID, doPrompt, prompt,Promise with as a return parameter.Here we have to check the conditions and list the elements while are been mapped.currentModel is to generate Content form to list,and put the result response through text.Here we use axios to get api and we have to pass AxiosResponse to the promise.
-
-switchModel:
-
-For this we have modelName as parameter which is in string datatype and the return type is with void. and pass the api key to the generative ai and with that getGenerativeModel with a modelName as parameter.
