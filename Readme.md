@@ -80,160 +80,160 @@
 <td>generateContent</td>
 <td>prompt: string, stream: boolean</td>
 <td>Promise<string></td>
-<td></td>
+<td>Returns the Generated content from the Gemini AI</td>
 </tr>
 <tr>
 <td>3</td>
 <td>switchModel</td>
 <td>modelName: string</td>
 <td>void</td>
-<td></td>
+<td>Switched from one model to another model</td>
 </tr>
 <tr>
 <td>4</td>
 <td>fileToGenerativePart</td>
 <td>path: string, mimeType: string</td>
 <td>JSON</td>
-<td></td>
+<td>Makes the image to buffer structure for prompting</td>
 </tr>
 <tr>
 <td>5</td>
 <td>useTextAndImage</td>
 <td>imageParts: string[][], stream: boolean, prompt: string</td>
 <td>Promise<string></td>
-<td></td>
+<td>Prompt both image and text</td>
 </tr>
 <tr>
 <td>6</td>
 <td>changeConfig</td>
 <td>{ maxOutputTokens, temperature, topP, topK, stopSequence }: ModelConfig</td>
 <td>void</td>
-<td></td>
+<td>Change the Configuration of the Model</td>
 </tr>
 <tr>
 <td>7</td>
 <td>changeSafetySettings</td>
 <td>input: Map<string, string></td>
 <td>void</td>
-<td></td>
+<td>Change the Safety settings of the Module</td>
 </tr>
 <tr>
 <td>8</td>
 <td>loadSavedCredentialsIfExist</td>
 <td>token_path: string</td>
 <td>Promise<JSON CLient | null></td>
-<td></td>
+<td>Loads the Token file if exist</td>
 </tr>
 <tr>
 <td>9</td>
 <td>connectServiceAccount</td>
 <td>clientKey: string, keyFile: string, privateKey: string, scopes: string[]</td>
 <td>Promise<void></td>
-<td></td>
+<td>Connects to the Google service Accounts</td>
 </tr>
 <tr>
 <td>10</td>
 <td>saveCredentials</td>
 <td>client: any, credentials_path: string, token_path: string</td>
 <td>Promise<void></td>
-<td></td>
+<td>Saves the Token Credentials</td>
 </tr>
 <tr>
 <td>11</td>
 <td>connectAuthClient</td>
 <td>token_path: string, credentials_path: string, scopes: string[]</td>
 <td>Promise<void></td>
-<td></td>
+<td>Connects to the Google Auth 2.0 Client ID</td>
 </tr>
 <tr>
 <td>12</td>
 <td>listFiles</td>
 <td>pageSize: number</td>
 <td>Promise<string[][] | null | undefined></td>
-<td></td>
+<td>Lists the Drive files in the Service Account</td>
 </tr>
 <tr>
 <td>13</td>
 <td>uploadFile</td>
 <td>fileName: string</td>
 <td>Promise<string | null | undefined></td>
-<td></td>
+<td>Uploads the File in the Service Account</td>
 </tr>
 <tr>
 <td>14</td>
 <td>updateFile</td>
 <td>fileName: string, fileId: string</td>
 <td>Promise<string | null | undefined></td>
-<td></td>
+<td>Updates the File in the Service Account</td>
 </tr>
 <tr>
 <td>15</td>
 <td>downloadFile</td>
 <td>fileName: string, fileId: string, listenerFunction: any</td>
 <td>Promise<any></td>
-<td></td>
+<td>Downloads a File in the Service Account</td>
 </tr>
 <tr>
 <td>16</td>
 <td>driveAndPrompt</td>
 <td>prompt: string, fileName: string, fileId: string</td>
 <td>Promise<string | null></td>
-<td></td>
+<td>Directly Prompting a image file inside a Service Account from Gemini AI</td>
 </tr>
 <tr>
 <td>17</td>
 <td>returnImageBuffer</td>
 <td>fileName: string, fileId: string</td>
 <td>Promise<Buffer | string></td>
-<td></td>
+<td>Returning a Image Buffer for the Image</td>
 </tr>
 <tr>
 <td>18</td>
 <td>returnSnippet</td>
 <td>userId: string, maxResult: number</td>
 <td>Promise<string[]></td>
-<td></td>
+<td>Returns Mail Snippets from the User Account</td>
 </tr>
 <tr>
 <td>19</td>
 <td>promptSnippet</td>
 <td>userId: string, snippetID: string, prompt: string</td>
 <td>Promise<string></td>
-<td></td>
+<td>Prompts the Snippets from the User Account</td>
 </tr>
 <tr>
 <td>20</td>
 <td>sendMail</td>
 <td>from: string, to: string, subject: string, text: string, html: string, name: string, prompt: string</td>
 <td>string</td>
-<td></td>
+<td>Sends a Mail along with custom Prompt</td>
 </tr>
 <tr>
 <td>21</td>
 <td>translateText</td>
 <td>text: any, targetLang: string</td>
 <td>Promise<string | null></td>
-<td></td>
+<td>Translates a Given Text to the Target Language</td>
 </tr>
 <tr>
 <td>22</td>
 <td>getBlogData</td>
 <td>API_KEY: string, bloggerID: string</td>
 <td>Promise<AxiosResponse | any></td>
-<td></td>
+<td>Get the Blog Data from the Blogger Services</td>
 </tr>
 <tr>
 <td>23</td>
 <td>generateBlogContent</td>
 <td>prompt: string | string[]</td>
 <td>string</td>
-<td></td>
+<td>Generates a Blog content depending on the User request</td>
 </tr>
 <tr>
 <td>24</td>
 <td>getBlogContent</td>
 <td>API_KEY: string, bloggerID: string, doPrompt: boolean, prompt: string</td>
 <td>Promise<AxiosResponse | any></td>
-<td></td>
+<td>Get the Blog Content and add custom prompt to it</td>
 </tr>
 </table>
